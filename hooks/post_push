@@ -23,4 +23,10 @@ for tag in ${SOURCE_COMMIT} $(git tag -l --points-at HEAD | sed 's/^v//' || echo
   echo "Additional tag: ${tag##*/}"
   docker tag ${IMAGE_NAME} ${DOCKER_REPO}:${tag##*/}
   docker push ${DOCKER_REPO}:${tag##*/}
+  if [[ "${tag}" =~ ^v?([0-9]+\.)?([0-9]+\.)?(\*|[0-9]+)$ ]]; then \
+    CTAG="${tag}_${SOURCE_COMMIT##*/}"
+    echo "Additional compound tag: ${CTAG}"
+    docker tag ${IMAGE_NAME} ${DOCKER_REPO}:${CTAG}
+    docker push ${DOCKER_REPO}:${CTAG}
+  fi
 done
