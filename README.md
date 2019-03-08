@@ -23,5 +23,5 @@ We first push any updates to master, preferably with a version tag, to trigger a
 [https://singularity-hub.org/collections/2400](https://singularity-hub.org/collections/2400)
 
 
-Singularity containers are built from specific versions of pre-built Docker images. To trigger builds, updated Singularity recipes are pushed to singularity branch.
+Singularity containers are built from specific versions of pre-built Docker images from Docker Hub. To trigger builds, updated Singularity recipes are pushed to `singularity` branch.
 
