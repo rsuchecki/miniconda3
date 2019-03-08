@@ -1,4 +1,4 @@
-FROM debian:stable-20190204
+FROM debian:stable-20190228
 
 ARG ANACONDA_VERSION=4.5.12
 
