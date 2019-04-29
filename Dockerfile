@@ -1,6 +1,6 @@
-FROM debian:stable-20190228
+FROM debian:stable-20190326
 
-ARG ANACONDA_VERSION=4.5.12
+ARG ANACONDA_VERSION=4.6.14
 
 RUN apt-get -qq update && apt-get -qq -y install --no-install-recommends \
       libkeyutils-dev \
