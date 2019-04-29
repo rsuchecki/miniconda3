@@ -27,6 +27,10 @@ for tag in ${SOURCE_COMMIT} $(git tag -l --points-at HEAD | sed 's/^v//' || echo
     CTAG="${tag}_${SOURCE_COMMIT##*/}"
     echo "Additional compound tag: ${CTAG}"
     docker tag ${IMAGE_NAME} ${DOCKER_REPO}:${CTAG}
-    docker push ${DOCKER_REPO}:${CTAG}
+    docker push ${DOCKER_REPO}:${CTAG} | tee push.log
+    DIGEST=$(grep -oE '(digest: )(sha256):([A-Fa-f0-9]+)' push.log | cut -d':' -f3)
+    echo "Additional compound tag with sha256 digest hex: ${CTAG}_${DIGEST}"
+    docker tag ${IMAGE_NAME} ${DOCKER_REPO}:${CTAG}_${DIGEST}
+    docker push ${DOCKER_REPO}:${CTAG}_${DIGEST}
   fi
 done
