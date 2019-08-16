@@ -1,0 +1,2 @@
+Bootstrap: docker
+From: rsuchecki/miniconda3:4.7.10_cd69971e4015090c1a46a7a124cada51875124b3
