@@ -15,7 +15,7 @@ Versioned container recipes
 ### Docker from master branch
 [https://hub.docker.com/r/rsuchecki/miniconda3](https://hub.docker.com/r/rsuchecki/miniconda3)
 
-We first push any updates to master, preferably with a version tag, to trigger an automated build on Docker Hub. This results with an image with several tags, e.g.
+We first push any updates to master, preferably with an annotated version tag, to trigger an automated build on Docker Hub. This results with an image with several tags, e.g.
 
 * `latest` - this one will get overwritten
 * `4.5.12` - this one may get overwritten
